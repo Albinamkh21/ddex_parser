@@ -1,0 +1,19 @@
+{
+    "name": "study/stringvalidator",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Study\\EmailValidator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Albina Mukhamediyeva",
+            "email": "albinamkh@mail.ru"
+        }
+    ],
+    "require": {
+        "albinamkh/month-translator": "^1.0",
+        "shuchkin/simplexlsxgen": "^1.4"
+    }
+}
