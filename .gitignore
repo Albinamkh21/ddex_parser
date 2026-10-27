@@ -1,5 +1,7 @@
 vendor
 storage
+logs/
+*upload*/
 upload
 upload_big
 .idea/

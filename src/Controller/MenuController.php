@@ -1,7 +1,4 @@
 <?php
-/*
-Author
-*/
 
 namespace Study\EmailValidator\Controller;
 
@@ -15,5 +12,4 @@ class MenuController
             'title' => 'Главная страница',
         ]);
     }
-
 }

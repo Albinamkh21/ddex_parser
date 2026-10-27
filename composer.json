@@ -13,7 +13,10 @@
         }
     ],
     "require": {
-        "albinamkh/month-translator": "^1.0",
+
         "shuchkin/simplexlsxgen": "^1.4"
+    },
+    "platform": {
+        "php": "7.0.0"
     }
 }

@@ -1,70 +1,62 @@
 <?php
 
-
 namespace Study\EmailValidator;
 
-use  Study\EmailValidator\View\View;
+use Study\EmailValidator\View\View;
 
 class RoutManager
 {
-    const ALLOWED_ACTIONS = ['parse', 'get', 'index'];
-    const ALLOWED_ROUTES = ['parser','menu'];
+    const ALLOWED_ACTIONS = ['parse', 'get', 'index', 'ajaxinit', 'ajaxstep', 'ajaxfilter', 'ajaxfilterstep', 'ajaxfilterfinalize'];
+    const ALLOWED_ROUTES = ['parser', 'menu'];
     const NAMESPACE = "Study\\EmailValidator\\Controller\\";
+
     public function __construct()
     {
         $url = strtok($_SERVER["REQUEST_URI"], '?');
         $routes = explode('/', $url);
 
-        if($url == '/'){
+        if ($url == '/') {
             $action_name = 'index';
-            $controller_name = self::NAMESPACE."MenuController";
+            $controller_name = self::NAMESPACE . "MenuController";
             $controller = new $controller_name();
             $controller->$action_name();
             return;
         }
 
-        if (empty($routes[1] && in_array(strtolower($routes[1]),self::ALLOWED_ROUTES)) ) {
-            View::render('error/404', [
-                'title' => 'Ошибка 404',
-                'error_code' => '404 - Not Found',
-                'result' => 'Нет такой страницы'
-            ]);
-        }
-        else{
-            $route = ucfirst(strtolower($routes[1]));
-            $controller_name = self::NAMESPACE."{$route}Controller";
-
+        if (!isset($routes[1]) || !in_array(strtolower($routes[1]), self::ALLOWED_ROUTES)) {
+            $this->render404();
+            return;
         }
 
-        if (empty($routes[2] && in_array(strtolower($routes[2]),self::ALLOWED_ACTIONS)) ) {
-            View::render('error/404', [
-                'title' => 'Ошибка 404',
-                'error_code' => '404 - Not Found',
-                'result' => 'Нет такой страницы'
-            ]);
-        }
-        $action_name = strtolower($routes[2]);
+        $route = ucfirst(strtolower($routes[1]));
+        $controller_name = self::NAMESPACE . "{$route}Controller";
 
-        // redirect to 404
+        $action_name = isset($routes[2]) ? strtolower($routes[2]) : 'index';
+        if (!in_array($action_name, self::ALLOWED_ACTIONS)) {
+            $this->render404();
+            return;
+        }
+
         if (!class_exists($controller_name, true)) {
-            View::render('error/404', [
-                'title' => 'Ошибка 404',
-                'error_code' => '404 - Not Found',
-                'result' => 'Нет такой страницы'
-            ]);
-       }
+            $this->render404();
+            return;
+        }
 
-        // redirect to 404
-        if(!method_exists($controller_name, $action_name)) {
-            View::render('error/404', [
-                'title' => 'Ошибка 404',
-                'error_code' => '404 - Not Found',
-                'result' => 'Нет такой страницы'
-            ]);
+        if (!method_exists($controller_name, $action_name)) {
+            $this->render404();
+            return;
         }
 
         $controller = new $controller_name();
         $controller->$action_name();
     }
 
+    private function render404()
+    {
+        View::render('error/404', [
+            'title' => 'Ошибка 404',
+            'error_code' => '404 - Not Found',
+            'result' => 'Нет такой страницы'
+        ]);
+    }
 }

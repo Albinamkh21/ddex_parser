@@ -1,0 +1,130 @@
+/* General Layout & Background */
+body {
+background-color: #f8f9fa;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+color: #333;
+}
+
+/* Container Adjustments */
+.container {
+max-width: 720px;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+
+/* Headings Styling */
+h2 {
+font-weight: 700;
+color: #2c3e50;
+letter-spacing: -0.5px;
+}
+
+h4.mb-3 {
+font-size: 1.1rem;
+color: #6c757d;
+font-weight: 400;
+text-align: center;
+margin-bottom: 25px !important;
+}
+
+/* Card Form Wrapper */
+#form.card {
+border: none;
+border-radius: 12px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+padding: 30px !important;
+background: #ffffff;
+}
+
+#form h5.mb-3 {
+font-size: 1rem;
+color: #495057;
+font-weight: 600;
+margin-bottom: 20px !important;
+text-align: left;
+}
+
+/* Button Container Adjustment /
+#form div[style="padding-left: 100px"] {
+padding-left: 0 !important;
+padding-top: 10px !important;
+justify-content: flex-start;
+gap: 12px !important;
+}
+
+/* Buttons Styling */
+.btn {
+padding: 10px 24px;
+font-weight: 600;
+border-radius: 8px;
+transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+background-color: #0d6efd;
+border-color: #0d6efd;
+box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+.btn-primary:hover {
+background-color: #0b5ed7;
+transform: translateY(-1px);
+box-shadow: 0 6px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-danger {
+box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
+}
+
+/* Progress Container */
+#autoProgressContainer {
+background: #ffffff;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+border: none;
+}
+
+.progress {
+border-radius: 8px;
+background-color: #e9ecef;
+overflow: hidden;
+}
+
+.progress-bar {
+font-weight: 600;
+font-size: 12px;
+line-height: 25px;
+}
+
+/* Log Display Area */
+#autoLog {
+background: #f1f3f5;
+padding: 12px 16px;
+border-radius: 6px;
+color: #495057 !important;
+font-size: 13px !important;
+font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+/* Result & Error Alerts */
+.alert {
+border-radius: 8px;
+border: none;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.alert-success {
+background-color: #d1e7dd;
+color: #0f5132;
+}
+
+.alert-success a {
+color: #0f5132;
+font-weight: 600;
+text-decoration: underline;
+}
+
+.alert-success a:hover {
+color: #0a3622;
+}

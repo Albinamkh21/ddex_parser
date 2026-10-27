@@ -12,18 +12,15 @@ class Response
     const HTTP_CODE_OK = 200;
     const HTTP_CODE_BAD_REQUEST = 400;
 
-
     public function getStatus(): int
     {
         return $this->status;
     }
 
-
     public function getMessage(): string
     {
         return $this->message;
     }
-
 
     public function setStatusCode(int $status, string $message): void
     {
@@ -34,9 +31,6 @@ class Response
 
     public function getResponse()
     {
-      echo $this->getMessage();
+        echo $this->getMessage();
     }
-
-
-
 }

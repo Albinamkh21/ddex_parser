@@ -2,17 +2,8 @@
 
 namespace Study\EmailValidator\View;
 
-/**
- * View controller
- */
 class View
 {
-    /**
-     * Render view
-     * @param string $view
-     * @param array $data
-     * @return void
-     */
     public static function render(string $view, array $data = [])
     {
         extract($data, EXTR_OVERWRITE);
@@ -23,12 +14,6 @@ class View
         exit();
     }
 
-    /**
-     * Render into string
-     * @param string $view
-     * @param array $data
-     * @return string
-     */
     public static function renderStr(string $view, array $data = []): string
     {
         extract($data, EXTR_OVERWRITE);

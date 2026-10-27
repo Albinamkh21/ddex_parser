@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Study\EmailValidator\Service;
-
 
 class EmailValidator
 {
@@ -16,7 +14,6 @@ class EmailValidator
             return $this->checkMXRecords( $email );
         } );
         return $validEmails;
-
     }
 
     public function checkEmailName($email)
